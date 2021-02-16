@@ -12,26 +12,24 @@
 <body>
 
     <div id="container">
-        <form action="#" id="userForm">
-            <label for="book-title">Title
-                <input type="text" id="book-title" placeholder="title" required>
-            </label>
+        <form action="#" id="user-form" class="hide">
+            <label for="book-title">Title </label>
+            <input type="text" id="book-title" required>
 
-            <label for="author-name">Author
-                <input type="text" id="author-name" placeholder="author" required>
-            </label>
+            <label for="author-name">Author </label>
+            <input type="text" id="author-name" required>
 
-            <label for="book-pages">Pages
-                <input type="number" name="book-pages" id="book-pages" required>
-            </label>
+            <label for="book-pages">Pages</label>
+            <input type="number" name="book-pages" id="book-pages" required>
 
-            <label for="page-read">Yes
-                <input type="radio" name="page-read" class="page-read">
-            </label>
+            <div id="switch-field">
+                <input type="radio" name="page-read" id="radio-one" value="yes">
+                <label for="radio-one">Yes</label>
 
-            <label for="page-read">No
-                <input type="radio" name="page-read" class="page-read">
-            </label>
+                <input type="radio" name="page-read" id="radio-two" value="no">
+                <label for=" radio-two">No </label>
+            </div>
+
 
             <button type="button" id="submit">submit</button>
 
