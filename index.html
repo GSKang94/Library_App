@@ -11,8 +11,38 @@
 
 <body>
 
+    <div id="container">
+        <form action="#" id="userForm">
+            <label for="book-title">Title
+                <input type="text" id="book-title" placeholder="title" required>
+            </label>
 
-    <script src="app.js" type="text/javascript"></script>
+            <label for="author-name">Author
+                <input type="text" id="author-name" placeholder="author" required>
+            </label>
+
+            <label for="book-pages">Pages
+                <input type="number" name="book-pages" id="book-pages" required>
+            </label>
+
+            <label for="page-read">Yes
+                <input type="radio" name="page-read" class="page-read">
+            </label>
+
+            <label for="page-read">No
+                <input type="radio" name="page-read" class="page-read">
+            </label>
+
+            <button type="button" id="submit">submit</button>
+
+        </form>
+
+        <script src="app.js" type="text/javascript"></script>
 </body>
 
 </html>
+
+<!-- 
+    * Display some books on page
+    * display user input books on page
+ -->
