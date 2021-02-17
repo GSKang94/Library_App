@@ -15,6 +15,7 @@
 body{
     background-color: #d3e0dc;
 }
+
 #user-form{
   width: 20rem;
   display: flex;
@@ -36,6 +37,10 @@ body{
   color: #eff7e1;
   font-size: 1.6rem;
   margin: 0.4rem 0 1.2rem 0;
+}
+
+#user-form textarea{
+  background-color: var(--form-clr);
 }
 
 #user-form label{
@@ -67,6 +72,29 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+input:-webkit-autofill{
+  background-color: chocolate;
+}
+
+
+#display{
+  display: flex;
+  flex-flow: column;
+  background-color: chocolate;
+  width: 20rem;
+  /* padding: 1rem; */
+  text-align: center;
+}
+
+#display-title{
+  background-color: coral;
+  padding: 0.6rem;
+}
+
+
+
+
 /* 
 #switch-field {
 	display: flex;

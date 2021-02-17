@@ -37,25 +37,33 @@ function addBookToLibrary() {
 
     for (i = 0; i < myLibrary.length; i++) {
         display = div();
+        display.id = "display"
 
         let title = div();
         title.innerText = myLibrary[i].title;
+        title.id = "display-title"
         display.appendChild(title);
 
         let author = div();
         author.innerText = myLibrary[i].author;
+        author.id = "display-author"
         display.appendChild(author);
 
         let pages = div();
         pages.innerText = myLibrary[i].pages;
+        pages.id = "display-pages"
         display.appendChild(pages);
 
         let haveRead = div();
         haveRead.innerText = userBook.haveRead();
+        haveRead.id = "display-read"
         display.appendChild(haveRead);
     }
     container.appendChild(display)
-}
+};
+
+
+
 
 
 
