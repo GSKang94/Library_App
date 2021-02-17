@@ -110,6 +110,10 @@ input:-webkit-autofill{
   margin: 0 auto;
 }
 
+#add-new-book ion-icon{
+  width: 4rem;
+  height: 4rem;
+}
 
 /* 
 #switch-field {
