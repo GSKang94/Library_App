@@ -58,15 +58,23 @@ function addBookToLibrary() {
         haveRead.innerText = userBook.haveRead();
         haveRead.id = "display-read"
         display.appendChild(haveRead);
+
+
+        let googleApi = "https://www.googleapis.com/books/v1/volumes?q="
+        fetch(googleApi + myLibrary[i].title + "+inauthor:" + myLibrary[i].author)
+            .then(response => response.json())
+            .then(data => appendData(data))
+            .catch(err => console.log(err));
     }
     container.appendChild(display)
 };
 
 
 
-
-
-
+function appendData(data) {
+    let img = document.querySelector("img");
+    img.src = data.items[0].volumeInfo.imageLinks.thumbnail;
+}
 
 
 
