@@ -4,6 +4,8 @@ let authorName = document.getElementById("author-name");
 let bookPages = document.getElementById("book-pages");
 let pageRead = document.querySelectorAll("input[name='page-read']");
 let submit = document.getElementById("submit");
+let addNewBook = document.getElementById("add-new-book");
+let userForm = document.getElementById("user-form");
 let display;
 
 let myLibrary = [];
@@ -26,6 +28,7 @@ Book.prototype.haveRead = () => {
 
 submit.addEventListener("click", () => {
     addBookToLibrary()
+
 })
 
 function addBookToLibrary() {
@@ -43,6 +46,10 @@ function addBookToLibrary() {
         title.innerText = myLibrary[i].title;
         title.id = "display-title"
         display.appendChild(title);
+
+        let img = document.createElement("img");
+        img.id = "display-img";
+        display.appendChild(img);
 
         let author = div();
         author.innerText = myLibrary[i].author;
@@ -65,16 +72,21 @@ function addBookToLibrary() {
             .then(response => response.json())
             .then(data => appendData(data))
             .catch(err => console.log(err));
+
+        function appendData(data) {
+            img.src = data.items[0].volumeInfo.imageLinks.thumbnail;
+            let totalPages = data.items[0].volumeInfo.pageCount;
+        }
     }
     container.appendChild(display)
+    userForm.classList.add("hide")
 };
 
 
 
-function appendData(data) {
-    let img = document.querySelector("img");
-    img.src = data.items[0].volumeInfo.imageLinks.thumbnail;
-}
+addNewBook.addEventListener("click", () => {
+    userForm.classList.remove("hide")
+})
 
 
 

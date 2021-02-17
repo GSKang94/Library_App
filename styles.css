@@ -62,7 +62,7 @@ body{
 
 .hide{
   /* visibility: hidden; */
-  /* display: none !important; */
+  display: none !important;
 }
 
 
@@ -77,22 +77,38 @@ input:-webkit-autofill{
   background-color: chocolate;
 }
 
+#container{
+  display: flex;
+  width: 53%;
+  /* margin: 5rem auto 0; */
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border: 1px solid red;
+}
 
 #display{
   display: flex;
   flex-flow: column;
   background-color: chocolate;
-  width: 20rem;
+  width: 15rem;
+  /* min-width: 7rem; */
+  /* max-width: 15rem; */
   /* padding: 1rem; */
   text-align: center;
+  margin: 1.7rem;
+  border-radius: 8px;
 }
 
 #display-title{
   background-color: coral;
   padding: 0.6rem;
+  border-radius: 8px;
 }
 
-
+#display-img{
+  width: 10rem;
+  margin: 0 auto;
+}
 
 
 /* 
