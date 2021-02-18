@@ -26,19 +26,30 @@ Book.prototype.haveRead = () => {
     }
 }
 
-submit.addEventListener("click", () => {
-    addBookToLibrary()
 
+addNewBook.addEventListener("click", () => {
+    userForm.classList.remove("hide")
+    bookTitle.focus()
+    submit.onclick = () => addBookToLibrary()
+    userForm.reset();
 })
+
+
+userForm.addEventListener("keydown", (e) => {
+    if (e.code === "Enter") {
+        addBookToLibrary()
+    }
+})
+
 
 function addBookToLibrary() {
     let userBook = new Book(bookTitle.value, authorName.value, bookPages.value);
 
     myLibrary.push(userBook);
 
-    let div = () => document.createElement("div");
-
     for (i = 0; i < myLibrary.length; i++) {
+        let div = () => document.createElement("div");
+
         display = div();
         display.id = "display"
 
@@ -53,17 +64,17 @@ function addBookToLibrary() {
 
         let author = div();
         author.innerText = myLibrary[i].author;
-        author.id = "display-author"
+        author.id = "display-author";
         display.appendChild(author);
 
         let pages = div();
         pages.innerText = myLibrary[i].pages;
-        pages.id = "display-pages"
+        pages.id = "display-pages";
         display.appendChild(pages);
 
         let haveRead = div();
         haveRead.innerText = userBook.haveRead();
-        haveRead.id = "display-read"
+        haveRead.id = "display-read";
         display.appendChild(haveRead);
 
 
@@ -74,7 +85,7 @@ function addBookToLibrary() {
             .catch(err => console.log(err));
 
         function appendData(data) {
-            img.src = data.items[0].volumeInfo.imageLinks.thumbnail;
+            img.src = data.items[0].volumeInfo.imageLinks.smallThumbnail;
             let totalPages = data.items[0].volumeInfo.pageCount;
         }
     }
@@ -84,9 +95,7 @@ function addBookToLibrary() {
 
 
 
-addNewBook.addEventListener("click", () => {
-    userForm.classList.remove("hide")
-})
+
 
 
 

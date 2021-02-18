@@ -10,23 +10,62 @@
        -moz-box-sizing: border-box;
      box-sizing: border-box;
      scroll-behavior:smooth;
-  }
+}
 
 body{
     background-color: #d3e0dc;
+    
+}
+
+header{
+  text-align: center;
+  background-color: #c7956d;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#aside{
+  position: fixed;
+  /* border: 1px solid rebeccapurple; */
+  width: 16rem;
+  height: 100vh;
+  /* padding-left: 1rem; */
+  text-align: center;
+}
+
+#aside h1{
+  margin-top: 10rem;
+  border-top: 1px dotted black;
+  border-bottom: 1px dotted black;
+  width: 70%;
+  margin-left: 2.7rem;
+}
+#aside #book-log{
+  /* display: flex;
+  flex-direction: column; */
+  /* margin-top: 10rem; */
+}
+
+#book-log li{
+  margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
 #user-form{
-  width: 20rem;
+  width: 25rem;
   display: flex;
   flex-flow: column;
   background-color: var(--form-clr);
-  
   border-radius: 5px;
   padding: 1.2rem 1.7rem;
   box-shadow: 5px 4px 5px 0px rgba(0,0,0,0.75);
-
-  margin: 2rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1;
 }
 
 #user-form input{
@@ -36,7 +75,7 @@ body{
   background-color: var(--form-clr);
   color: #eff7e1;
   font-size: 1.6rem;
-  margin: 0.4rem 0 1.2rem 0;
+  margin: 0.9rem 0 1.7rem 0;
 }
 
 #user-form textarea{
@@ -51,18 +90,21 @@ body{
 }
 
 #user-form #submit{
-  width: 3.4rem;
+  width: 5.5rem;
   margin: 0 auto;
   padding: 0.3rem;
   border: none;
   outline: none;
   border-radius: 4px;
-  background-color: whitesmoke;
+  background-color: #d35d6e;
+  color: #222831;
+  font-weight: bold;
 }
 
 .hide{
   /* visibility: hidden; */
   display: none !important;
+  /* transition: all 1s ease-out; */
 }
 
 
@@ -78,87 +120,47 @@ input:-webkit-autofill{
 }
 
 #container{
-  display: flex;
-  width: 53%;
-  /* margin: 5rem auto 0; */
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  border: 1px solid red;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  width: 46%;
+  margin: 5rem auto 0;
+  background-color: #383e56;
+  border-radius: 5px;
+  z-index: 0;
 }
 
-#display{
-  display: flex;
-  flex-flow: column;
-  background-color: chocolate;
+#container #display{
+  background-color: #c5d7bd;
   width: 15rem;
-  /* min-width: 7rem; */
-  /* max-width: 15rem; */
-  /* padding: 1rem; */
   text-align: center;
   margin: 1.7rem;
   border-radius: 8px;
+  
 }
 
 #display-title{
-  background-color: coral;
+  background-color: #c5d7bd;
   padding: 0.6rem;
   border-radius: 8px;
 }
 
 #display-img{
-  width: 10rem;
+  width: 12rem;
+  height: 17rem;
   margin: 0 auto;
+  border-radius: 5px;
 }
 
 #add-new-book ion-icon{
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  right: 6%;
+  top: 3%;
+  transition: all 0.3s ease-out;
+}
+
+#add-new-book ion-icon:hover{
   width: 4rem;
   height: 4rem;
 }
-
-/* 
-#switch-field {
-	display: flex;
-  margin-top: 1rem;
-	margin-bottom: 1.2rem;
-	overflow: hidden;
-}
-
-#switch-field label{
-  background-color: #e4e4e4;
-	color: rgba(0, 0, 0, 0.6);
-	font-size: 14px;
-	line-height: 1;
-	text-align: center;
-	padding: 8px 16px;
-	margin-right: -1px;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-	transition: all 0.1s ease-in-out;
-}
-
-#switch-field input{
-  position: absolute !important;
-	clip: rect(0, 0, 0, 0);
-	height: 1px;
-	width: 1px;
-	border: 0;
-	overflow: hidden;
-}
-
-#switch-field label:hover {
-	cursor: pointer;
-  background-color: red;
-}
-
-#switch-field input:checked +label {
-	background-color: #a5dc86;
-	box-shadow: none;
-}
-
-#switch-field label:first-of-type {
-	border-radius: 4px 0 0 4px;
-}
-
-#switch-field label:last-of-type {
-	border-radius: 0 4px 4px 0;
-} */

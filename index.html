@@ -12,7 +12,20 @@
 </head>
 
 <body>
-    <form action="#" id="user-form" class="hide" autocomplete="off" onsubmit="return false">
+    <header>
+        <h1>My Library</h1>
+    </header>
+
+    <section id="aside">
+        <h1>Book Log</h1>
+        <ul id="book-log">
+            <li>Total Books:0</li>
+            <li>Books read:0</li>
+            <li>Pages read:0</li>
+            <li>Total Pages:0</li>
+        </ul>
+    </section>
+    <form action="#" id="user-form" class="hide" autocomplete="off">
         <label for="book-title">Title </label>
         <input type="text" id="book-title" required>
 
@@ -31,7 +44,7 @@
         </div>
 
 
-        <button type="submit" id="submit">submit</button>
+        <button type="button" id="submit">Add book</button>
 
     </form>
 
