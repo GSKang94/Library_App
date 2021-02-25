@@ -92,7 +92,7 @@ header{
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  /* z-index: 1; */
+  z-index: 1;
 }
 
 #user-form input{
@@ -162,37 +162,57 @@ input:-webkit-autofill{
 
 #container{
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  width: 46%;
-  margin: 5rem auto 0;
-  background-color: #383e56;
-  border-radius: 5px;
+  grid-template-columns: repeat(3,1fr); 
+  margin-left: 20rem;
+  margin-top: 4.7rem;
+  background-color: #939b62;
   z-index: 0;
 }
 
 #container #display{
-  background-color: #c5d7bd;
-  width: 15rem;
-  text-align: center;
+  background-color: rgba(255, 249, 176, 0.2);
+  width: 30rem;
   margin: 1.7rem;
   border-radius: 8px;
-  
+  position: relative;
 }
 
 #display-title{
-  background-color: #c5d7bd;
   padding: 0.6rem;
   border-radius: 8px;
+  text-align: center;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  font-weight: bold;
+font-size: 2rem;
 }
 
 #display-img{
-  width: 12rem;
-  height: 17rem;
-  margin: 0 auto;
   border-radius: 5px;
+  /* margin-left: 2rem; */
+  margin: 1rem 2rem;
 }
 
-
+#display-author{
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 1.3rem;
+}
+#display-pages{
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 70%;
+}
+#display-read{
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 80%;
+}
 /* #add-new-book ion-icon{
   width: 3rem;
   height: 3rem;
