@@ -13,13 +13,13 @@
 }
 
 body{
-    background-color: #d3e0dc;
+    background-color: #e7e6e1;
     
 }
 
 header{
   text-align: center;
-  background-color: #c7956d;
+  background-color: #f2a154;
   padding: 1rem;
   position: fixed;
   top: 0;
@@ -28,20 +28,34 @@ header{
 
 #aside{
   position: fixed;
-  /* border: 1px solid rebeccapurple; */
-  width: 16rem;
+  top: 4.6rem;
+  width: 20rem;
   height: 100vh;
-  /* padding-left: 1rem; */
   text-align: center;
+  color: #f7f6e7;
+  background-color: #314e52;
+}
+
+#add-new-book{
+  font-size: 1.2rem;
+  cursor:pointer;
+  padding: 0.6rem;
+  border-radius: 7px;
+  margin-top: 2.5rem;
+  outline: none;
+  border: none;
+  background-color: chocolate;
 }
 
 #aside h1{
-  margin-top: 10rem;
-  border-top: 1px dotted black;
-  border-bottom: 1px dotted black;
+  margin-top: 5rem;
+  border-top: 1px dotted #f2a154;
+  border-bottom: 1px dotted #f2a154;
   width: 70%;
   margin-left: 2.7rem;
+  color: chocolate;
 }
+
 #aside #book-log{
   /* display: flex;
   flex-direction: column; */
@@ -65,7 +79,7 @@ header{
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 #user-form input{
@@ -151,7 +165,8 @@ input:-webkit-autofill{
   border-radius: 5px;
 }
 
-#add-new-book ion-icon{
+
+/* #add-new-book ion-icon{
   width: 3rem;
   height: 3rem;
   position: absolute;
@@ -163,4 +178,4 @@ input:-webkit-autofill{
 #add-new-book ion-icon:hover{
   width: 4rem;
   height: 4rem;
-}
+} */

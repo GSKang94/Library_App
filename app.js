@@ -2,11 +2,17 @@ let container = document.getElementById("container");
 let bookTitle = document.getElementById("book-title");
 let authorName = document.getElementById("author-name");
 let bookPages = document.getElementById("book-pages");
-let pageRead = document.querySelectorAll("input[name='page-read']");
+let pageRead = document.getElementsByName("page-read")
 let submit = document.getElementById("submit");
 let addNewBook = document.getElementById("add-new-book");
 let userForm = document.getElementById("user-form");
 let display;
+
+// Book log
+let totalBooks = document.getElementById("total-books");
+let booksRead = document.getElementById("books-read");
+let pagesRead = document.getElementById("pages-read");
+let totalPages = document.getElementById("total-pages")
 
 let myLibrary = [];
 
@@ -19,12 +25,12 @@ function Book(title, author, pages) {
 Book.prototype.haveRead = () => {
     for (let page of pageRead) {
         if (page.checked) {
-            return page.checked
+            return true;
         } else {
-            return page.checked;
+            return false;
         }
     }
-}
+};
 
 
 addNewBook.addEventListener("click", () => {
@@ -41,6 +47,9 @@ userForm.addEventListener("keydown", (e) => {
     }
 })
 
+let pageCounter = 0;
+let totalPageCounter = 0;
+// let totalPages = 0;
 
 function addBookToLibrary() {
     let userBook = new Book(bookTitle.value, authorName.value, bookPages.value);
@@ -86,11 +95,19 @@ function addBookToLibrary() {
 
         function appendData(data) {
             img.src = data.items[0].volumeInfo.imageLinks.smallThumbnail;
-            let totalPages = data.items[0].volumeInfo.pageCount;
+
+            totalPageCounter = data.items[0].volumeInfo.pageCount;
+            console.log(totalPageCounter);
         }
     }
     container.appendChild(display)
     userForm.classList.add("hide")
+    //update Book log 
+    totalBooks.innerText++;
+    userBook.haveRead() ? booksRead.innerText++ : null;
+    pageCounter += +userBook.pages;
+    pagesRead.innerText = pageCounter;
+    totalPages.innerText += totalPageCounter;
 };
 
 
@@ -103,7 +120,7 @@ function addBookToLibrary() {
 
 
 
-
+// pageRead.map((page) => { page.checked ? console.log("true") : console.log('False') });
         // display.innerText = myLibrary[i].title;
 
         // for (let page of pageRead) {

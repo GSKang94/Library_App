@@ -5,8 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="styles.css">
     <title>Library</title>
 </head>
@@ -17,12 +15,13 @@
     </header>
 
     <section id="aside">
+        <button id="add-new-book">Add Book</button>
         <h1>Book Log</h1>
         <ul id="book-log">
-            <li>Total Books:0</li>
-            <li>Books read:0</li>
-            <li>Pages read:0</li>
-            <li>Total Pages:0</li>
+            <li>Total Books:<span id="total-books">0</span> </li>
+            <li>Books read: <span id="books-read">0</span> </li>
+            <li>Pages read: <span id="pages-read">0</span> </li>
+            <li>Total Pages: <span id="total-pages">0</span> </li>
         </ul>
     </section>
     <form action="#" id="user-form" class="hide" autocomplete="off">
@@ -36,10 +35,10 @@
         <input type="number" name="book-pages" id="book-pages" required>
 
         <div id="switch-field">
-            <input type="radio" name="page-read" id="radio-one" value="yes">
+            <input type="radio" name="page-read" id="radio-one">
             <label for="radio-one">Yes</label>
 
-            <input type="radio" name="page-read" id="radio-two" value="no">
+            <input type="radio" name="page-read" id="radio-two">
             <label for=" radio-two">No </label>
         </div>
 
@@ -51,9 +50,7 @@
     <div id="container">
 
     </div>
-    <div id="add-new-book">
-        <ion-icon name="add-circle"></ion-icon>
-    </div>
+
     <script src="app.js" type="text/javascript"></script>
 </body>
 
