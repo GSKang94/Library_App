@@ -1,6 +1,7 @@
 :root{
 --form-clr:#351f39;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +11,11 @@
        -moz-box-sizing: border-box;
      box-sizing: border-box;
      scroll-behavior:smooth;
+     
 }
 
 body{
-    background-color: #e7e6e1;
+    background-color: #fff9b0;
     
 }
 .swal-bg{
@@ -27,21 +29,22 @@ body{
 
 header{
   text-align: center;
-  background-color: #f2a154;
+  background-color: #aa2b1d;
   padding: 1rem;
   position: fixed;
   top: 0;
   width: 100%;
+  color: #f4f5db;
 }
 
 #aside{
   position: fixed;
-  top: 4.6rem;
+  top: 4.7rem;
   width: 20rem;
   height: 100vh;
   text-align: center;
-  color: #f7f6e7;
-  background-color: #314e52;
+  /* color: #f7f6e7; */
+  background-color: #ffd384;
 }
 
 #add-new-book{
@@ -52,16 +55,18 @@ header{
   margin-top: 2.5rem;
   outline: none;
   border: none;
-  background-color: chocolate;
+  background-color: #cc561e;
+  color: #f4f5db;
+  font-weight: bold;
 }
 
 #aside h1{
   margin-top: 5rem;
-  border-top: 1px dotted #f2a154;
-  border-bottom: 1px dotted #f2a154;
+  border-top: 1px dotted #cc561e;
+  border-bottom: 1px dotted #cc561e;
   width: 70%;
   margin-left: 2.7rem;
-  color: chocolate;
+  color: #cc561e;
 }
 
 #aside #book-log{
@@ -129,7 +134,21 @@ header{
   /* transition: all 1s ease-out; */
 }
 
+/* .filter{
+  backdrop-filter: blur(4px);
+} */
+ion-icon[name="close-circle"]{
+  font-size: 2rem;
+  color: #e7e6e1;
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  transition: all 0.5s ease;
+}
 
+ion-icon[name="close-circle"]:hover{
+  color: rgb(158, 11, 11);
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

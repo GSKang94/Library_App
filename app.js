@@ -6,6 +6,7 @@ let pageBoolian = document.getElementsByName("page-boolian")
 let submit = document.getElementById("submit");
 let addNewBook = document.getElementById("add-new-book");
 let userForm = document.getElementById("user-form");
+let closeIcon = document.querySelector("ion-icon[name='close-circle']")
 let display;
 
 // Book log
@@ -16,6 +17,8 @@ let totalPages = parseInt(document.getElementById("total-pages").innerText, 10);
 
 
 let myLibrary = [];
+
+
 
 function Book(title, author, pages) {
     this.title = title;
@@ -35,8 +38,13 @@ Book.prototype.haveRead = () => {
 
 let pageCounter = 0;
 
+closeIcon.onclick = () => {
+    userForm.classList.add("hide")
+}
+
 addNewBook.addEventListener("click", () => {
     userForm.classList.remove("hide")
+    // container.classList.add("filter")
     bookTitle.focus()
     // submit.onclick = () => addBookToLibrary()
     submit.onclick = () => validate();
@@ -122,6 +130,10 @@ function addBookToLibrary() {
     // totalPages += pageCounter;
     // document.getElementById("total-pages").innerText = totalPages;
     // console.log(pageCounter);
+
+
+
+    myLibrary.splice(0, 1)
 };
 
 
