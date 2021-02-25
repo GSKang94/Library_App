@@ -16,6 +16,14 @@ body{
     background-color: #e7e6e1;
     
 }
+.swal-bg{
+  background-color: brown;
+  width: 12rem;
+}
+
+.swal-text {
+  color: #eff7e1;
+}
 
 header{
   text-align: center;

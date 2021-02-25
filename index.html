@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <link rel="stylesheet" href="styles.css">
     <title>Library</title>
 </head>
@@ -19,26 +21,26 @@
         <h1>Book Log</h1>
         <ul id="book-log">
             <li>Total Books:<span id="total-books">0</span> </li>
-            <li>Books read: <span id="books-read">0</span> </li>
-            <li>Pages read: <span id="pages-read">0</span> </li>
-            <li>Total Pages: <span id="total-pages">0</span> </li>
+            <li>Books read:<span id="books-read">0</span> </li>
+            <li>Pages read:<span id="pages-read">0</span> </li>
+            <li>Total Pages:<span id="total-pages">0</span> </li>
         </ul>
     </section>
     <form action="#" id="user-form" class="hide" autocomplete="off">
         <label for="book-title">Title </label>
-        <input type="text" id="book-title" required>
+        <input type="text" id="book-title">
 
         <label for="author-name">Author </label>
-        <input type="text" id="author-name" required>
+        <input type="text" id="author-name">
 
         <label for="book-pages">Pages</label>
-        <input type="number" name="book-pages" id="book-pages" required>
+        <input type="number" name="book-pages" id="book-pages">
 
         <div id="switch-field">
-            <input type="radio" name="page-read" id="radio-one">
+            <input type="radio" name="page-boolian" id="radio-one">
             <label for="radio-one">Yes</label>
 
-            <input type="radio" name="page-read" id="radio-two">
+            <input type="radio" name="page-boolian" id="radio-two">
             <label for=" radio-two">No </label>
         </div>
 

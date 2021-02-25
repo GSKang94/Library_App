@@ -2,7 +2,7 @@ let container = document.getElementById("container");
 let bookTitle = document.getElementById("book-title");
 let authorName = document.getElementById("author-name");
 let bookPages = document.getElementById("book-pages");
-let pageRead = document.getElementsByName("page-read")
+let pageBoolian = document.getElementsByName("page-boolian")
 let submit = document.getElementById("submit");
 let addNewBook = document.getElementById("add-new-book");
 let userForm = document.getElementById("user-form");
@@ -11,8 +11,9 @@ let display;
 // Book log
 let totalBooks = document.getElementById("total-books");
 let booksRead = document.getElementById("books-read");
-let pagesRead = document.getElementById("pages-read");
-let totalPages = document.getElementById("total-pages")
+let pagesRead = parseInt(document.getElementById("pages-read").innerText, 10);
+let totalPages = parseInt(document.getElementById("total-pages").innerText, 10);
+
 
 let myLibrary = [];
 
@@ -23,7 +24,7 @@ function Book(title, author, pages) {
 }
 
 Book.prototype.haveRead = () => {
-    for (let page of pageRead) {
+    for (let page of pageBoolian) {
         if (page.checked) {
             return true;
         } else {
@@ -32,24 +33,36 @@ Book.prototype.haveRead = () => {
     }
 };
 
+let pageCounter = 0;
 
 addNewBook.addEventListener("click", () => {
     userForm.classList.remove("hide")
     bookTitle.focus()
-    submit.onclick = () => addBookToLibrary()
+    // submit.onclick = () => addBookToLibrary()
+    submit.onclick = () => validate();
     userForm.reset();
 })
 
 
 userForm.addEventListener("keydown", (e) => {
     if (e.code === "Enter") {
-        addBookToLibrary()
+        validate();
     }
 })
 
-let pageCounter = 0;
-let totalPageCounter = 0;
-// let totalPages = 0;
+let validate = () => {
+    if (bookTitle.value === "" || authorName.value === "" || bookPages.value === "") {
+        swal("Please Fill everything", {
+            buttons: false,
+            className: "swal-bg",
+            timer: 1000,
+        });
+    } else {
+        addBookToLibrary();
+    }
+}
+
+
 
 function addBookToLibrary() {
     let userBook = new Book(bookTitle.value, authorName.value, bookPages.value);
@@ -95,22 +108,21 @@ function addBookToLibrary() {
 
         function appendData(data) {
             img.src = data.items[0].volumeInfo.imageLinks.smallThumbnail;
-
-            totalPageCounter = data.items[0].volumeInfo.pageCount;
-            console.log(totalPageCounter);
+            pageCounter = data.items[0].volumeInfo.pageCount;
         }
     }
     container.appendChild(display)
     userForm.classList.add("hide")
+
     //update Book log 
     totalBooks.innerText++;
     userBook.haveRead() ? booksRead.innerText++ : null;
-    pageCounter += +userBook.pages;
-    pagesRead.innerText = pageCounter;
-    totalPages.innerText += totalPageCounter;
+    pagesRead += +userBook.pages;
+    document.getElementById("pages-read").innerText = pagesRead;
+    // totalPages += pageCounter;
+    // document.getElementById("total-pages").innerText = totalPages;
+    // console.log(pageCounter);
 };
-
-
 
 
 
