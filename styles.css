@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 :root{
 --form-clr:#351f39;
 }
@@ -17,6 +20,7 @@
 body{
     background-color: #fff9b0;
     
+    
 }
 .swal-bg{
   background-color: brown;
@@ -35,6 +39,7 @@ header{
   top: 0;
   width: 100%;
   color: #f4f5db;
+  font-family: 'Reggae One', cursive;
 }
 
 #aside{
@@ -45,6 +50,7 @@ header{
   text-align: center;
   /* color: #f7f6e7; */
   background-color: #ffd384;
+  font-family: 'Source Code Pro', monospace;
 }
 
 #add-new-book{
@@ -68,8 +74,6 @@ header{
   margin-left: 2.7rem;
   color: #cc561e;
 }
-
-
 
 #book-log li{
   margin-top: 1rem;
@@ -164,6 +168,7 @@ input:-webkit-autofill{
   background-color: #939b62;
   /* z-index: 0; */
   position: relative;
+  font-family: 'Abel', sans-serif;
 }
 
 #container #display{

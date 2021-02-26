@@ -17,13 +17,14 @@ let totalPages = document.getElementById("total-pages");
 
 let myLibrary = [];
 
-function Book(title, author, pages) {
+function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = read;
 }
 
-Book.prototype.haveRead = () => {
+let haveRead = () => {
     for (let page of pageBoolian) {
         if (page.checked) {
             return true;
@@ -35,6 +36,7 @@ Book.prototype.haveRead = () => {
 
 closeIcon.onclick = () => {
     userForm.classList.add("hide")
+    console.log(localStorage);
 }
 
 addNewBook.addEventListener("click", () => {
@@ -43,7 +45,6 @@ addNewBook.addEventListener("click", () => {
     submit.onclick = () => validate();
     userForm.reset();
 })
-
 
 userForm.addEventListener("keydown", (e) => {
     if (e.code === "Enter") {
@@ -64,11 +65,13 @@ let validate = () => {
 }
 
 function addBookToLibrary() {
-    let userBook = new Book(bookTitle.value, authorName.value, bookPages.value);
+    let userBook = new Book(bookTitle.value, authorName.value, bookPages.value, haveRead());
     myLibrary.push(userBook);
+    render()
+};
 
+let render = () => {
     myLibrary.map((book) => {
-
         let div = () => document.createElement("div");
 
         display = div();
@@ -101,8 +104,9 @@ function addBookToLibrary() {
 
         display.appendChild(displaySide)
 
+        let apiKey = "AIzaSyDL_N1oZ_AQlov4et30nXnY7QQuxyic3mA"
         let googleApi = "https://www.googleapis.com/books/v1/volumes?q="
-        fetch(googleApi + book.title + "+inauthor:" + book.author)
+        fetch(googleApi + book.title + "+inauthor:" + book.author + "&key=" + apiKey)
             .then(response => response.json())
             .then(data => appendData(data))
             .catch(err => console.log(err));
@@ -113,15 +117,33 @@ function addBookToLibrary() {
 
         }
     })
-
-
     container.appendChild(display)
     userForm.classList.add("hide")
+
     //update Book log 
     totalBooks.innerText++;
-    userBook.haveRead() ? booksRead.innerText++ : null;
-    pagesRead += +userBook.pages;
+
+    // pagesRead += +userBook.pages;
+    pagesRead += +myLibrary[myLibrary.length - 1].pages
     document.getElementById("pages-read").innerText = pagesRead;
 
-};
+    localStorage.setItem("Book", JSON.stringify(myLibrary));
+    myLibrary[myLibrary.length - 1].read ? booksRead.innerText++ : null;
+}
 
+// localStorage.clear()
+
+
+let storage = () => {
+    if (localStorage.length) {
+        let storedbooks = JSON.parse(localStorage.getItem("Book"));
+        storedbooks.map((book, i) => {
+            let savedBook = new Book(storedbooks[i].title, storedbooks[i].author, storedbooks[i].pages, storedbooks[i].read)
+            myLibrary.push(savedBook)
+            render()
+            console.log(myLibrary);
+        })
+    }
+}
+
+storage()
