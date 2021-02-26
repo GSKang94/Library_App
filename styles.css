@@ -69,11 +69,7 @@ header{
   color: #cc561e;
 }
 
-#aside #book-log{
-  /* display: flex;
-  flex-direction: column; */
-  /* margin-top: 10rem; */
-}
+
 
 #book-log li{
   margin-top: 1rem;
@@ -128,15 +124,15 @@ header{
   font-weight: bold;
 }
 
-.hide{
-  /* visibility: hidden; */
-  display: none !important;
-  /* transition: all 1s ease-out; */
+#user-form h3{
+  color: #eff7e1;
 }
 
-/* .filter{
-  backdrop-filter: blur(4px);
-} */
+.hide{
+  display: none !important;
+}
+
+
 ion-icon[name="close-circle"]{
   font-size: 2rem;
   color: #e7e6e1;
@@ -166,63 +162,35 @@ input:-webkit-autofill{
   margin-left: 20rem;
   margin-top: 4.7rem;
   background-color: #939b62;
-  z-index: 0;
+  /* z-index: 0; */
+  position: relative;
 }
 
 #container #display{
   background-color: rgba(255, 249, 176, 0.2);
-  width: 30rem;
+  width: 25rem;
   margin: 1.7rem;
   border-radius: 8px;
   position: relative;
 }
 
-#display-title{
-  padding: 0.6rem;
-  border-radius: 8px;
-  text-align: center;
+#display-side{
   position: absolute;
-  top: 20%;
   left: 50%;
+  top: 10%;
+  font-size: 1.3rem;
+}
+
+#display-title{
   font-weight: bold;
-font-size: 2rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 #display-img{
+  height: 190px;
+  width: 128px;
   border-radius: 5px;
-  /* margin-left: 2rem; */
   margin: 1rem 2rem;
 }
 
-#display-author{
-  text-align: center;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  font-size: 1.3rem;
-}
-#display-pages{
-  text-align: center;
-  position: absolute;
-  left: 50%;
-  top: 70%;
-}
-#display-read{
-  text-align: center;
-  position: absolute;
-  left: 50%;
-  top: 80%;
-}
-/* #add-new-book ion-icon{
-  width: 3rem;
-  height: 3rem;
-  position: absolute;
-  right: 6%;
-  top: 3%;
-  transition: all 0.3s ease-out;
-}
-
-#add-new-book ion-icon:hover{
-  width: 4rem;
-  height: 4rem;
-} */
