@@ -13,7 +13,7 @@ let display;
 let totalBooks = document.getElementById("total-books");
 let booksRead = document.getElementById("books-read");
 let pagesRead = parseInt(document.getElementById("pages-read").innerText, 10);
-let totalPages = document.getElementById("total-pages");
+// let totalPages = parseInt(document.getElementById("total-pages").innerText, 10);
 
 let myLibrary = [];
 
@@ -114,25 +114,29 @@ let render = () => {
         function appendData(data) {
             img.src = data.items[0].volumeInfo.imageLinks.smallThumbnail;
             pages.innerText = data.items[0].volumeInfo.pageCount + " pages";
-
         }
     })
     container.appendChild(display)
     userForm.classList.add("hide")
 
+    let deleteObject = document.getElementById("delete-object");
+
+
+    bookLog();
+}
+
+// localStorage.clear()
+
+let bookLog = () => {
     //update Book log 
     totalBooks.innerText++;
 
-    // pagesRead += +userBook.pages;
     pagesRead += +myLibrary[myLibrary.length - 1].pages
     document.getElementById("pages-read").innerText = pagesRead;
 
     localStorage.setItem("Book", JSON.stringify(myLibrary));
     myLibrary[myLibrary.length - 1].read ? booksRead.innerText++ : null;
 }
-
-// localStorage.clear()
-
 
 let storage = () => {
     if (localStorage.length) {
@@ -141,9 +145,26 @@ let storage = () => {
             let savedBook = new Book(storedbooks[i].title, storedbooks[i].author, storedbooks[i].pages, storedbooks[i].read)
             myLibrary.push(savedBook)
             render()
-            console.log(myLibrary);
         })
     }
 }
 
 storage()
+
+
+
+
+
+
+ // deleteObject.onclick = () => {
+    //     container.removeChild(container.children[0])
+    //     // console.log(container.children[0]);
+    // }
+    // display.onclick = (e) => {
+    //     container.removeChild(container.children[0])
+    // }
+
+// deleteObject.onclick = () => {
+//     myLibrary.splice(0, 1)
+//     console.log(myLibrary);
+// }
