@@ -1,21 +1,5 @@
-let container = document.getElementById("container");
-let bookTitle = document.getElementById("book-title");
-let authorName = document.getElementById("author-name");
-let bookPages = document.getElementById("book-pages");
-let pageBoolian = document.getElementsByName("page-boolian")
-let submit = document.getElementById("submit");
-let addNewBook = document.getElementById("add-new-book");
-let userForm = document.getElementById("user-form");
-let closeIcon = document.querySelector("ion-icon[name='close-circle']")
-let display;
-
-// Book log
-let totalBooks = document.getElementById("total-books");
-let booksRead = document.getElementById("books-read");
-let pagesRead = parseInt(document.getElementById("pages-read").innerText, 10);
-// let totalPages = parseInt(document.getElementById("total-pages").innerText, 10);
-
 let myLibrary = [];
+let userForm = document.getElementById("user-form");
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -25,8 +9,9 @@ function Book(title, author, pages, read) {
 }
 
 let haveRead = () => {
-    for (let page of pageBoolian) {
-        if (page.checked) {
+    let hr = document.getElementsByName("have-read")
+    for (let h of hr) {
+        if (h.checked) {
             return true;
         } else {
             return false;
@@ -34,43 +19,48 @@ let haveRead = () => {
     }
 };
 
-closeIcon.onclick = () => {
-    userForm.classList.add("hide")
-    console.log(localStorage);
-}
+let main = () => {
+    let bookTitle = document.getElementById("book-title");
 
-addNewBook.addEventListener("click", () => {
-    userForm.classList.remove("hide")
-    bookTitle.focus()
-    submit.onclick = () => validate();
-    userForm.reset();
-})
+    userForm.addEventListener("keydown", (e) => {
+        if (e.code === "Enter") {
+            validate();
+        }
+    })
 
-userForm.addEventListener("keydown", (e) => {
-    if (e.code === "Enter") {
-        validate();
+    document.querySelector("ion-icon[name='close-circle']").onclick = () => {
+        userForm.classList.add("hide")
     }
-})
 
-let validate = () => {
-    if (bookTitle.value === "" || authorName.value === "" || bookPages.value === "") {
-        swal("Please Fill everything", {
-            buttons: false,
-            className: "swal-bg",
-            timer: 1000,
-        });
-    } else {
-        addBookToLibrary();
+    document.getElementById("add-new-book").addEventListener("click", () => {
+        userForm.classList.remove("hide")
+        bookTitle.focus()
+        userForm.reset();
+    })
+
+    document.getElementById("submit").onclick = () => validate();
+
+    let validate = () => {
+        let container = document.getElementById("container");
+        let authorName = document.getElementById("author-name");
+        let bookPages = document.getElementById("book-pages");
+
+        if (bookTitle.value === "" || authorName.value === "" || bookPages.value === "") {
+            swal("Please Fill everything", {
+                buttons: false,
+                className: "swal-bg",
+                timer: 1000,
+            });
+        } else {
+            let userBook = new Book(bookTitle.value, authorName.value, bookPages.value, haveRead());
+            myLibrary.push(userBook);
+            render()
+        }
     }
 }
-
-function addBookToLibrary() {
-    let userBook = new Book(bookTitle.value, authorName.value, bookPages.value, haveRead());
-    myLibrary.push(userBook);
-    render()
-};
 
 let render = () => {
+    let display;
     myLibrary.map((book) => {
         let div = () => document.createElement("div");
 
@@ -118,31 +108,30 @@ let render = () => {
     })
     container.appendChild(display)
     userForm.classList.add("hide")
-
-    let deleteObject = document.getElementById("delete-object");
-
-
     bookLog();
 }
 
 // localStorage.clear()
 
 let bookLog = () => {
-    //update Book log 
-    totalBooks.innerText++;
+    let lastItem = myLibrary.length - 1;
+    document.getElementById("total-books").innerText++;
 
-    pagesRead += +myLibrary[myLibrary.length - 1].pages
+    let pagesRead = parseInt(document.getElementById("pages-read").innerText, 10);
+    pagesRead += +myLibrary[lastItem].pages
     document.getElementById("pages-read").innerText = pagesRead;
 
-    localStorage.setItem("Book", JSON.stringify(myLibrary));
-    myLibrary[myLibrary.length - 1].read ? booksRead.innerText++ : null;
+    let booksRead = document.getElementById("books-read");
+    myLibrary[lastItem].read ? booksRead.innerText++ : null;
+
+    localStorage.setItem("book", JSON.stringify(myLibrary));
 }
 
 let storage = () => {
     if (localStorage.length) {
-        let storedbooks = JSON.parse(localStorage.getItem("Book"));
-        storedbooks.map((book, i) => {
-            let savedBook = new Book(storedbooks[i].title, storedbooks[i].author, storedbooks[i].pages, storedbooks[i].read)
+        let storedbooks = JSON.parse(localStorage.getItem("book"));
+        storedbooks.map((book) => {
+            let savedBook = new Book(book.title, book.author, book.pages, book.read);
             myLibrary.push(savedBook)
             render()
         })
@@ -151,7 +140,7 @@ let storage = () => {
 
 storage()
 
-
+main()
 
 
 

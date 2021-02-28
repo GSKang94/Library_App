@@ -44,7 +44,7 @@ header{
 
 #aside{
   position: fixed;
-  top: 4.7rem;
+  top: 4.9rem;
   width: 20rem;
   height: 100vh;
   text-align: center;
@@ -164,7 +164,7 @@ input:-webkit-autofill{
   display: grid;
   grid-template-columns: repeat(3,1fr); 
   margin-left: 20rem;
-  margin-top: 4.7rem;
+  margin-top: 4.9rem;
   background-color: #939b62;
   /* z-index: 0; */
   position: relative;
