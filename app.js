@@ -1,6 +1,22 @@
 let myLibrary = [];
 let userForm = document.getElementById("user-form");
 
+// class Book {
+//     constructor(title, author, pages, read) {
+//         this.title = title;
+//         this.author = author;
+//         this.pages = pages;
+//         this.read = read;
+//     }
+//     read=this.haveRead();
+//     haveRead() {
+//         let hr = document.getElementsByName("have-read")
+//         for (let h of hr) {
+//             return h.checked;
+//         }
+//     }
+// }
+
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -11,11 +27,7 @@ function Book(title, author, pages, read) {
 let haveRead = () => {
     let hr = document.getElementsByName("have-read")
     for (let h of hr) {
-        if (h.checked) {
-            return true;
-        } else {
-            return false;
-        }
+        return h.checked;
     }
 };
 
@@ -41,7 +53,7 @@ let main = () => {
     document.getElementById("submit").onclick = () => validate();
 
     let validate = () => {
-        let container = document.getElementById("container");
+        // let container = document.getElementById("container");
         let authorName = document.getElementById("author-name");
         let bookPages = document.getElementById("book-pages");
 
@@ -128,32 +140,13 @@ let bookLog = () => {
 }
 
 let storage = () => {
-    if (localStorage.length) {
-        let storedbooks = JSON.parse(localStorage.getItem("book"));
-        storedbooks.map((book) => {
-            let savedBook = new Book(book.title, book.author, book.pages, book.read);
-            myLibrary.push(savedBook)
-            render()
-        })
-    }
+    let storedbooks = JSON.parse(localStorage.getItem("book"));
+    storedbooks.map((book) => {
+        let savedBook = new Book(book.title, book.author, book.pages, book.read);
+        myLibrary.push(savedBook)
+        render()
+    })
+    main()
 }
 
-storage()
-
-main()
-
-
-
-
- // deleteObject.onclick = () => {
-    //     container.removeChild(container.children[0])
-    //     // console.log(container.children[0]);
-    // }
-    // display.onclick = (e) => {
-    //     container.removeChild(container.children[0])
-    // }
-
-// deleteObject.onclick = () => {
-//     myLibrary.splice(0, 1)
-//     console.log(myLibrary);
-// }
+localStorage.length ? storage() : main();
