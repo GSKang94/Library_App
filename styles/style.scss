@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +10,13 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+$primary-clr: #000;
+$secondary-clr: #ebd8b7;
+$white: #f3f4ed;
+
 body {
-  background-color: #121013;
+  background-color: #121415;
+  font-family: "Montserrat", sans-serif;
 }
 
 #aside {
@@ -20,12 +26,13 @@ body {
   height: 100vh;
   text-align: center;
   background-color: #000;
-  color: #fff;
+  color: $white;
   #flex-wrap {
-    height: 50vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-top: 2rem;
     align-items: center;
   }
   #name {
@@ -49,38 +56,103 @@ body {
     font-size: 1.2rem;
     cursor: pointer;
     padding: 0.6rem;
-    border-radius: 7px;
     width: 8rem;
     outline: none;
-    border: none;
-    background-color: #cc561e;
-    color: #f4f5db;
+    border: 1px solid transparent;
+
+    background-color: $primary-clr;
+    color: $secondary-clr;
+    border: 1px solid $white;
     font-weight: bold;
     transition: all 0.2s ease-in;
     &:hover {
-      background-color: #441905;
+      background-color: $secondary-clr;
+      color: $primary-clr;
     }
   }
-  h3 {
-    border-top: 1px dotted #cc561e;
-    border-bottom: 1px dotted #cc561e;
-    font-size: 1.3rem;
-    color: #cc561e;
+
+  #book-log {
+    h3 {
+      border-top: 1px dotted $secondary-clr;
+      border-bottom: 1px dotted $secondary-clr;
+      font-size: 1.4rem;
+      color: $secondary-clr;
+      padding: 0.5rem 0;
+    }
+    li {
+      margin-top: 1rem;
+      font-size: 1.3rem;
+    }
+  }
+  #undraw {
+    img {
+      width: 95%;
+      position: absolute;
+      bottom: 5%;
+      left: 10px;
+    }
   }
 }
 
-.flip {
-  animation: flip 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+#container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 4rem;
+  position: absolute;
+  left: 20rem;
+  right: 0;
+  padding: 2rem 9rem;
+
+  #display {
+    background-color: rgba(235, 216, 183, 0.3);
+    backdrop-filter: blur(10px);
+    color: $white;
+    border-radius: 3px;
+    transition: 0.3s all ease;
+    display: flex;
+    justify-content: space-between;
+    // &:hover {
+    //   background-color: $secondary-clr;
+    //   color: $primary-clr;
+    // }
+    #display-side {
+      margin-top: 1.5rem;
+      margin-right: 5rem;
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 60%;
+
+      #display-title {
+        font-weight: bold;
+        font-size: 2.3rem;
+      }
+    }
+
+    #display-img {
+      background-image: url(../assets/book.gif);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 2rem;
+      height: 11.8rem;
+      width: 8rem;
+      border-radius: 5px;
+      margin: 1rem 2rem;
+    }
+  }
 }
+
 #user-form {
   animation: flip 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   width: 25rem;
   display: flex;
   flex-flow: column;
-  background-color: var(#351f39);
+  background-color: $primary-clr;
   border-radius: 5px;
   padding: 1.2rem 1.7rem;
   box-shadow: 5px 4px 5px 0px rgba(0, 0, 0, 0.75);
+  // box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
   position: absolute;
   left: 40%;
   top: 30%;
@@ -90,105 +162,56 @@ body {
     border: none;
     outline: none;
     border-bottom: 0.5px solid #f4f5db;
-    background-color: var(--form-clr);
-    color: #eff7e1;
+    background-color: transparent;
+    color: $white;
     font-size: 1.6rem;
     margin: 0.9rem 0 1.7rem 0;
-  }
-  textarea {
-    background-color: var(--form-clr);
   }
   label {
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 0.1rem;
-    color: #e97878;
+    color: $secondary-clr;
+    font-weight: bold;
   }
-  #submit {
+  button {
     width: 5.5rem;
     margin: 0 auto;
     padding: 0.3rem;
     border: none;
     outline: none;
-    border-radius: 4px;
-    background-color: #d35d6e;
-    color: #222831;
+    border-radius: 2px;
+    background-color: $secondary-clr;
+    color: $primary-clr;
+    filter: saturate(200%);
     font-weight: bold;
+    transition: all 0.1s ease-in;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
-  h3 {
-    color: #eff7e1;
+  // h3 {
+  //   color: $white;
+  // }
+
+  ion-icon {
+    font-size: 2rem;
+    color: $white;
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    transition: all 0.2s ease;
   }
 }
-#book-log {
-  li {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-  }
-}
+
 .hide {
   display: none !important;
 }
-ion-icon[name="close-circle"] {
-  font-size: 2rem;
-  color: #e7e6e1;
-  position: absolute;
-  right: -6px;
-  top: -6px;
-  transition: all 0.5s ease;
-  &:hover {
-    color: rgb(158, 11, 11);
-  }
-}
-input {
-  &::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  &:-webkit-autofill {
-    background-color: chocolate;
-  }
-}
-#container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  margin-left: 20rem;
-  margin-top: 4.9rem;
-  position: relative;
-  font-family: "Abel", sans-serif;
-  #display {
-    background-color: rgba(255, 249, 176, 0.2);
-    width: 25rem;
-    margin: 1.7rem;
-    border-radius: 8px;
-    position: relative;
-  }
-}
-#display-side {
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  font-size: 1.3rem;
-}
-#display-title {
-  font-weight: bold;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-#display-img {
-  height: 190px;
-  width: 128px;
-  border-radius: 5px;
-  margin: 1rem 2rem;
+
+.flip {
+  animation: flip 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-// @import "https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap";
-// @import "https://fonts.googleapis.com/css2?family=Reggae+One&display=swap";
-// @import "https://fonts.googleapis.com/css2?family=Abel&display=swap";
-/* Sweet-alert */
 @keyframes flip {
   0% {
     transform: translateY(0);
@@ -198,6 +221,7 @@ input {
   }
 }
 
+/* Sweet-alert */
 .swal-bg {
   background-color: brown;
   width: 12rem;
@@ -205,3 +229,17 @@ input {
 .swal-text {
   color: #eff7e1;
 }
+
+// input {
+//   &::-webkit-outer-spin-button {
+//     -webkit-appearance: none;
+//     margin: 0;
+//   }
+//   &::-webkit-inner-spin-button {
+//     -webkit-appearance: none;
+//     margin: 0;
+//   }
+//   &:-webkit-autofill {
+//     background-color: chocolate;
+//   }
+// }

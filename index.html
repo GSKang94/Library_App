@@ -25,11 +25,14 @@
         <div id="book-log">
           <h3>Book Log</h3>
           <ul>
-            <li>Total Books:<span id="total-books">0</span></li>
-            <li>Books read:<span id="books-read">0</span></li>
-            <li>Pages read:<span id="pages-read">0</span></li>
+            <li>Total Books : <span id="total-books">0</span></li>
+            <li>Books read : <span id="books-read">0</span></li>
+            <li>Pages read : <span id="pages-read">0</span></li>
             <!-- <li>Total Pages:<span id="total-pages">0</span> </li> -->
           </ul>
+        </div>
+        <div id="undraw">
+          <img src="assets/undraw.svg" alt="" />
         </div>
       </div>
     </section>
@@ -44,13 +47,13 @@
 
       <label for="book-pages">Pages read</label>
       <input type="number" name="book-pages" id="book-pages" value="10" />
-      <h3>Finished?</h3>
+      <!-- <h3>Finished?</h3> -->
       <div id="switch-field">
         <input type="radio" name="have-read" id="radio-one" />
-        <label for="radio-one">Yes</label>
+        <label for="radio-one">Read</label>
 
         <input type="radio" name="have-read" id="radio-two" />
-        <label for=" radio-two">No </label>
+        <label for=" radio-two">Not-read </label>
       </div>
 
       <button type="button" id="submit">Add book</button>

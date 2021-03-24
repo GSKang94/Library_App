@@ -96,13 +96,15 @@ let render = () => {
     let haveRead = div();
     haveRead.id = "display-read";
     displaySide.appendChild(haveRead);
+    // console.log(book.read);
 
     display.appendChild(displaySide);
 
     let apiKey = "AIzaSyDL_N1oZ_AQlov4et30nXnY7QQuxyic3mA";
     let googleApi = "https://www.googleapis.com/books/v1/volumes?q=";
-    fetch()
-    //   googleApi + book.title + "+inauthor:" + book.author + "&key=" + apiKey
+    fetch(
+      googleApi + book.title + "+inauthor:" + book.author + "&key=" + apiKey
+    )
       .then((response) => response.json())
       .then((data) => appendData(data))
       .catch((err) => console.log(err));
@@ -117,7 +119,7 @@ let render = () => {
   bookLog();
 };
 
-// localStorage.clear()
+// localStorage.clear();
 
 let bookLog = () => {
   let lastItem = myLibrary.length - 1;
