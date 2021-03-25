@@ -127,8 +127,6 @@ body {
           backdrop-filter: blur(10px);
   color: #f3f4ed;
   border-radius: 3px;
-  -webkit-transition: 0.3s all ease;
-  transition: 0.3s all ease;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -165,6 +163,33 @@ body {
   height: 11.8rem;
   width: 8rem;
   border-radius: 5px;
+}
+
+#container .fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 #user-form {

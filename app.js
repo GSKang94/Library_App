@@ -115,6 +115,9 @@ let render = () => {
     }
   });
   container.appendChild(display);
+
+  display.classList.add("fadeIn");
+
   userForm.classList.add("hide");
   bookLog();
 };

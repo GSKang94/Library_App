@@ -19,6 +19,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+// Side-bar
 #aside {
   position: fixed;
   top: 0;
@@ -51,7 +52,6 @@ body {
       filter: invert(100%);
     }
   }
-
   #add-new-book {
     font-size: 1.2rem;
     cursor: pointer;
@@ -70,7 +70,6 @@ body {
       color: $primary-clr;
     }
   }
-
   #book-log {
     h3 {
       border-top: 1px dotted $secondary-clr;
@@ -94,6 +93,7 @@ body {
   }
 }
 
+// Main Container
 #container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -102,13 +102,11 @@ body {
   left: 20rem;
   right: 0;
   padding: 2rem 9rem;
-
   #display {
     background-color: rgba(235, 216, 183, 0.3);
     backdrop-filter: blur(10px);
     color: $white;
     border-radius: 3px;
-    transition: 0.3s all ease;
     display: flex;
     justify-content: space-around;
     padding: 1.5rem 0;
@@ -119,13 +117,11 @@ body {
       justify-content: space-around;
       height: 60%;
       width: 50%;
-
       #display-title {
         font-weight: bold;
         font-size: 1.5rem;
       }
     }
-
     #display-img {
       background-image: url(../assets/book.gif);
       background-position: center;
@@ -136,8 +132,37 @@ body {
       border-radius: 5px;
     }
   }
+  .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 }
 
+// Form
 #user-form {
   animation: flip 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   width: 25rem;
@@ -147,7 +172,6 @@ body {
   border-radius: 5px;
   padding: 1.2rem 1.7rem;
   box-shadow: 5px 4px 5px 0px rgba(0, 0, 0, 0.75);
-  // box-shadow: 0 1px 2px 0 rgb(0 0 0 / 60%), 0 1px 3px 1px rgb(0 0 0 / 30%);
   position: absolute;
   left: 40%;
   top: 30%;
@@ -185,10 +209,6 @@ body {
       transform: scale(1.1);
     }
   }
-  // h3 {
-  //   color: $white;
-  // }
-
   ion-icon {
     font-size: 2rem;
     color: $white;
