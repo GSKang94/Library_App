@@ -16,9 +16,12 @@ let haveRead = () => {
 };
 
 // Toggle menu on mobile
-document.getElementById("menu").addEventListener("click", () => {
-  document.getElementById("aside").classList.toggle("toggle-aside");
-});
+let toggleMenu = () => {
+  document.getElementById("menu").addEventListener("click", () => {
+    document.getElementById("aside").classList.toggle("toggle-aside");
+  });
+};
+toggleMenu();
 
 let main = () => {
   let bookTitle = document.getElementById("book-title");
@@ -34,6 +37,8 @@ let main = () => {
   };
 
   document.getElementById("add-new-book").addEventListener("click", () => {
+    // hide sidebar
+    document.getElementById("aside").classList.remove("toggle-aside");
     userForm.classList.remove("hide");
     bookTitle.focus();
     userForm.reset();
@@ -105,7 +110,7 @@ let render = () => {
 
     display.appendChild(displaySide);
 
-    let apiKey = "AIzaSyDL_N1oZ_AQlov4et30nXnY7QQuxyic3mA";
+    let apiKey = "AIzaSyCnkZmTwm1n9B7Asw5AK5M6Bz0SYfSfB5U";
     let googleApi = "https://www.googleapis.com/books/v1/volumes?q=";
     fetch(
       googleApi + book.title + "+inauthor:" + book.author + "&key=" + apiKey
@@ -127,7 +132,7 @@ let render = () => {
   bookLog();
 };
 
-localStorage.clear();
+// localStorage.clear();
 
 let bookLog = () => {
   let lastItem = myLibrary.length - 1;

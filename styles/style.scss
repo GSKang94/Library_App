@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+$primary-clr: #000;
+$secondary-clr: #d28231;
+$white: #f3f4ed;
+@import "_include-media";
+@import "_user-form.scss";
+@import "_aside.scss";
 * {
   margin: 0;
   padding: 0;
@@ -10,123 +16,38 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-$primary-clr: #000;
-$secondary-clr: #d28231;
-$white: #f3f4ed;
-@import "_include-media";
+
 body {
   background-color: #121415;
   font-family: "Montserrat", sans-serif;
 }
 
-#menu {
-  z-index: 5;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  cursor: pointer;
+#logo2 {
+  position: fixed;
+  top: 0;
+  z-index: 4;
+  background-color: $primary-clr;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  border-bottom: 1px solid $primary-clr;
   display: none;
   @include media(">phone", "<=tablet") {
-    display: block;
+    display: flex;
+    padding-top: 0.3rem;
+  }
+  h2 {
+    font-family: "Space Mono", monospace;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin-left: 0.5rem;
+    color: $white;
   }
   img {
     filter: invert(100%);
-    width: 3rem;
-    height: 3rem;
   }
-}
-
-// Side-bar
-#aside {
-  position: fixed;
-  top: 0;
-  width: 20rem;
-  // height: 100vh;
-  text-align: center;
-  background-color: #000;
-  color: $white;
-  height: 100%;
-  z-index: 0;
-  transition: 0.3s all ease;
-  @include media(">phone", "<=tablet") {
-    overflow: hidden;
-    width: 0;
-    padding-top: 3rem;
-  }
-  #flex-wrap {
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 2rem;
-    align-items: center;
-    width: 20rem;
-    @include media(">phone", "<=tablet") {
-      height: 50%;
-      justify-content: space-between;
-    }
-  }
-  #name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    h2 {
-      vertical-align: middle;
-      font-family: "Space Mono", monospace;
-      letter-spacing: 0.3rem;
-      font-weight: bold;
-      font-size: 1.8rem;
-      margin-left: 0.5rem;
-    }
-    img {
-      filter: invert(100%);
-    }
-  }
-  #add-new-book {
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0.6rem;
-    width: 8rem;
-    outline: none;
-    border: 1px solid transparent;
-    background-color: $primary-clr;
-    color: $secondary-clr;
-    border: 1px solid $secondary-clr;
-    font-weight: bold;
-    transition: all 0.2s ease-in;
-    &:hover {
-      background-color: $secondary-clr;
-      color: $primary-clr;
-    }
-  }
-  #book-log {
-    h3 {
-      border-top: 1px dotted $secondary-clr;
-      border-bottom: 1px dotted $secondary-clr;
-      font-size: 1.4rem;
-      color: $secondary-clr;
-      padding: 0.5rem 0;
-    }
-    li {
-      margin-top: 1rem;
-      font-size: 1.3rem;
-    }
-  }
-  #undraw {
-    img {
-      width: 18rem;
-      position: absolute;
-      bottom: 5%;
-      left: 10px;
-      @include media(">phone", "<=tablet") {
-        bottom: 10%;
-      }
-    }
-  }
-}
-
-#aside.toggle-aside {
-  width: 20rem;
 }
 // Main Container
 #container {
@@ -137,24 +58,41 @@ body {
   left: 20rem;
   right: 0;
   padding: 2rem 9rem;
+  z-index: 0;
+  @include media(">phone", "<=tablet") {
+    left: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+  }
   #display {
     background-color: rgba(235, 216, 183, 0.3);
     backdrop-filter: blur(10px);
     color: $white;
     border-radius: 3px;
     display: flex;
-    justify-content: space-around;
-    padding: 1.5rem 0;
+    padding: 1.5rem 1.5rem;
+    @include media(">phone", "<=tablet") {
+      margin: 0 1.5rem;
+    }
+
     #display-side {
       font-size: 1.1rem;
+      text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
-      height: 60%;
-      width: 50%;
+      justify-content: space-evenly;
+      margin-left: 1.5rem;
+      @include media(">phone", "<=tablet") {
+        font-size: 0.8rem;
+      }
       #display-title {
         font-weight: bold;
         font-size: 1.5rem;
+        @include media(">phone", "<=tablet") {
+          font-size: 1.2rem;
+        }
       }
     }
     #display-img {
@@ -195,89 +133,6 @@ body {
       opacity: 1;
     }
   }
-}
-
-// Form
-#user-form {
-  animation: flip 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  width: 25rem;
-  display: flex;
-  flex-flow: column;
-  background-color: $primary-clr;
-  border-radius: 5px;
-  padding: 1.2rem 1.7rem;
-  box-shadow: 5px 4px 5px 0px rgba(0, 0, 0, 0.75);
-  position: absolute;
-  left: 40%;
-  top: 30%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  input {
-    border: none;
-    outline: none;
-    border-bottom: 0.5px solid #f4f5db;
-    background-color: transparent;
-    color: $white;
-    font-size: 1.6rem;
-    margin: 0.9rem 0 1.7rem 0;
-  }
-  label {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.1rem;
-    color: $secondary-clr;
-    font-weight: bold;
-  }
-  button {
-    width: 5.5rem;
-    margin: 0 auto;
-    padding: 0.3rem;
-    border: none;
-    outline: none;
-    border-radius: 2px;
-    background-color: $secondary-clr;
-    color: $primary-clr;
-    filter: saturate(200%);
-    font-weight: bold;
-    transition: all 0.1s ease-in;
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-  ion-icon {
-    font-size: 2rem;
-    color: $white;
-    position: absolute;
-    right: 3px;
-    top: 3px;
-    transition: all 0.2s ease;
-  }
-}
-
-.hide {
-  display: none !important;
-}
-
-.flip {
-  animation: flip 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@keyframes flip {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-100px);
-  }
-}
-
-/* Sweet-alert */
-.swal-bg {
-  background-color: brown;
-  width: 12rem;
-}
-.swal-text {
-  color: #eff7e1;
 }
 
 // input {

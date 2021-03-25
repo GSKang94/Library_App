@@ -1,0 +1,115 @@
+#menu {
+  z-index: 5;
+  position: fixed;
+  top: 0.6rem;
+  left: 5px;
+  cursor: pointer;
+  display: none;
+  filter: invert(100%);
+  width: 3rem;
+  height: 3rem;
+  @include media(">phone", "<=tablet") {
+    display: block;
+  }
+}
+
+// Side-bar
+#aside {
+  position: fixed;
+  top: 0;
+  width: 20rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+  color: $white;
+  height: 100%;
+  z-index: 1;
+  transition: 0.2s all ease;
+  @include media(">phone", "<=tablet") {
+    overflow: hidden;
+    width: 0;
+  }
+  #flex-wrap {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 2rem;
+    align-items: center;
+    @include media(">phone", "<=tablet") {
+      height: 60%;
+      margin-top: 0.3rem;
+    }
+  }
+  #logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include media(">phone", "<=tablet") {
+      //   padding-bottom: 0.5rem;
+      //   border-bottom: 1px solid $white;
+      //   padding-top: 7.2rem;
+    }
+    h2 {
+      vertical-align: middle;
+      font-family: "Space Mono", monospace;
+      letter-spacing: 0.3rem;
+      font-weight: bold;
+      font-size: 1.8rem;
+      margin-left: 0.5rem;
+    }
+    img {
+      filter: invert(100%);
+    }
+  }
+
+  #add-new-book {
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.6rem;
+    width: 8rem;
+    outline: none;
+    border: 1px solid transparent;
+    background-color: $primary-clr;
+    color: $secondary-clr;
+    border: 1px solid $secondary-clr;
+    font-weight: bold;
+    transition: all 0.2s ease-in;
+    &:hover {
+      background-color: $secondary-clr;
+      color: $primary-clr;
+    }
+  }
+  #book-log {
+    h3 {
+      border-top: 1px dotted $secondary-clr;
+      border-bottom: 1px dotted $secondary-clr;
+      font-size: 1.4rem;
+      color: $secondary-clr;
+      padding: 0.5rem 0;
+    }
+    li {
+      margin-top: 1rem;
+      font-size: 1.3rem;
+    }
+  }
+  #undraw {
+    width: 20rem;
+    img {
+      width: 20rem;
+      position: absolute;
+      bottom: 5%;
+      left: 10px;
+
+      @include media(">phone", "<=tablet") {
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+    }
+  }
+}
+
+#aside.toggle-aside {
+  width: 100%;
+}
