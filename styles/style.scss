@@ -13,10 +13,27 @@
 $primary-clr: #000;
 $secondary-clr: #d28231;
 $white: #f3f4ed;
-
+@import "_include-media";
 body {
   background-color: #121415;
   font-family: "Montserrat", sans-serif;
+}
+
+#menu {
+  z-index: 5;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  display: none;
+  @include media(">phone", "<=tablet") {
+    display: block;
+  }
+  img {
+    filter: invert(100%);
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 // Side-bar
@@ -24,10 +41,18 @@ body {
   position: fixed;
   top: 0;
   width: 20rem;
-  height: 100vh;
+  // height: 100vh;
   text-align: center;
   background-color: #000;
   color: $white;
+  height: 100%;
+  z-index: 0;
+  transition: 0.3s all ease;
+  @include media(">phone", "<=tablet") {
+    overflow: hidden;
+    width: 0;
+    padding-top: 3rem;
+  }
   #flex-wrap {
     height: 60vh;
     display: flex;
@@ -35,6 +60,11 @@ body {
     justify-content: space-between;
     margin-top: 2rem;
     align-items: center;
+    width: 20rem;
+    @include media(">phone", "<=tablet") {
+      height: 50%;
+      justify-content: space-between;
+    }
   }
   #name {
     display: flex;
@@ -59,7 +89,6 @@ body {
     width: 8rem;
     outline: none;
     border: 1px solid transparent;
-
     background-color: $primary-clr;
     color: $secondary-clr;
     border: 1px solid $secondary-clr;
@@ -85,14 +114,20 @@ body {
   }
   #undraw {
     img {
-      width: 95%;
+      width: 18rem;
       position: absolute;
       bottom: 5%;
       left: 10px;
+      @include media(">phone", "<=tablet") {
+        bottom: 10%;
+      }
     }
   }
 }
 
+#aside.toggle-aside {
+  width: 20rem;
+}
 // Main Container
 #container {
   display: grid;

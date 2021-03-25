@@ -15,6 +15,11 @@ let haveRead = () => {
   }
 };
 
+// Toggle menu on mobile
+document.getElementById("menu").addEventListener("click", () => {
+  document.getElementById("aside").classList.toggle("toggle-aside");
+});
+
 let main = () => {
   let bookTitle = document.getElementById("book-title");
 
@@ -122,7 +127,7 @@ let render = () => {
   bookLog();
 };
 
-// localStorage.clear();
+localStorage.clear();
 
 let bookLog = () => {
   let lastItem = myLibrary.length - 1;

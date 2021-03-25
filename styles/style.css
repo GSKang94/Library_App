@@ -15,14 +15,47 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+#menu {
+  z-index: 5;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+  display: none;
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  #menu {
+    display: block;
+  }
+}
+
+#menu img {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+  width: 3rem;
+  height: 3rem;
+}
+
 #aside {
   position: fixed;
   top: 0;
   width: 20rem;
-  height: 100vh;
   text-align: center;
   background-color: #000;
   color: #f3f4ed;
+  height: 100%;
+  z-index: 0;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s all ease;
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  #aside {
+    overflow: hidden;
+    width: 0;
+    padding-top: 3rem;
+  }
 }
 
 #aside #flex-wrap {
@@ -41,6 +74,16 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 20rem;
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  #aside #flex-wrap {
+    height: 50%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 #aside #name {
@@ -103,10 +146,20 @@ body {
 }
 
 #aside #undraw img {
-  width: 95%;
+  width: 18rem;
   position: absolute;
   bottom: 5%;
   left: 10px;
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  #aside #undraw img {
+    bottom: 10%;
+  }
+}
+
+#aside.toggle-aside {
+  width: 20rem;
 }
 
 #container {
