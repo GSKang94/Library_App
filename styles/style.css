@@ -132,7 +132,7 @@
 #menu {
   z-index: 5;
   position: fixed;
-  top: 0.6rem;
+  top: 1rem;
   left: 5px;
   cursor: pointer;
   display: none;
@@ -171,6 +171,7 @@
   #aside {
     overflow: hidden;
     width: 0;
+    margin-top: 3.7rem;
   }
 }
 
@@ -195,7 +196,7 @@
 @media (min-width: 321px) and (max-width: 768px) {
   #aside #flex-wrap {
     height: 60%;
-    margin-top: 0.3rem;
+    margin-top: 4.5rem;
   }
 }
 
@@ -209,6 +210,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (min-width: 321px) and (max-width: 768px) {
+  #aside #logo {
+    display: none;
+  }
 }
 
 #aside #logo h2 {
@@ -263,16 +270,16 @@
 }
 
 #aside #undraw img {
-  width: 20rem;
+  width: 18rem;
   position: absolute;
-  bottom: 5%;
+  bottom: 10%;
   left: 10px;
 }
 
 @media (min-width: 321px) and (max-width: 768px) {
   #aside #undraw img {
-    margin: 0 auto;
     padding: 0 2rem;
+    width: 20rem;
   }
 }
 
@@ -317,7 +324,7 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding-top: 0.3rem;
+    padding-top: 0.5rem;
   }
 }
 

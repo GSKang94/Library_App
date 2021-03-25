@@ -35,7 +35,7 @@ body {
   display: none;
   @include media(">phone", "<=tablet") {
     display: flex;
-    padding-top: 0.3rem;
+    padding-top: 0.5rem;
   }
   h2 {
     font-family: "Space Mono", monospace;
