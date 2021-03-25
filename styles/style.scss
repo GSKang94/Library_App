@@ -11,7 +11,7 @@
   scroll-behavior: smooth;
 }
 $primary-clr: #000;
-$secondary-clr: #ebd8b7;
+$secondary-clr: #d28231;
 $white: #f3f4ed;
 
 body {
@@ -62,7 +62,7 @@ body {
 
     background-color: $primary-clr;
     color: $secondary-clr;
-    border: 1px solid $white;
+    border: 1px solid $secondary-clr;
     font-weight: bold;
     transition: all 0.2s ease-in;
     &:hover {

@@ -77,23 +77,23 @@ body {
   outline: none;
   border: 1px solid transparent;
   background-color: #000;
-  color: #ebd8b7;
-  border: 1px solid #f3f4ed;
+  color: #d28231;
+  border: 1px solid #d28231;
   font-weight: bold;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
 
 #aside #add-new-book:hover {
-  background-color: #ebd8b7;
+  background-color: #d28231;
   color: #000;
 }
 
 #aside #book-log h3 {
-  border-top: 1px dotted #ebd8b7;
-  border-bottom: 1px dotted #ebd8b7;
+  border-top: 1px dotted #d28231;
+  border-bottom: 1px dotted #d28231;
   font-size: 1.4rem;
-  color: #ebd8b7;
+  color: #d28231;
   padding: 0.5rem 0;
 }
 
@@ -230,7 +230,7 @@ body {
   text-transform: uppercase;
   font-size: 0.8rem;
   letter-spacing: 0.1rem;
-  color: #ebd8b7;
+  color: #d28231;
   font-weight: bold;
 }
 
@@ -241,7 +241,7 @@ body {
   border: none;
   outline: none;
   border-radius: 2px;
-  background-color: #ebd8b7;
+  background-color: #d28231;
   color: #000;
   -webkit-filter: saturate(200%);
           filter: saturate(200%);
