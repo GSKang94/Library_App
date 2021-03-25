@@ -8,6 +8,7 @@
   filter: invert(100%);
   width: 3rem;
   height: 3rem;
+  user-select: none;
   @include media(">phone", "<=tablet") {
     display: block;
   }
@@ -29,6 +30,7 @@
   @include media(">phone", "<=tablet") {
     overflow: hidden;
     width: 0;
+    // width: 100%;
     margin-top: 3.7rem;
   }
   #flex-wrap {
@@ -92,19 +94,20 @@
       margin-top: 1rem;
       font-size: 1.3rem;
     }
+    @include media(">phone", "<=tablet") {
+      margin-bottom: 4rem;
+    }
   }
   #undraw {
     width: 20rem;
     img {
       width: 18rem;
       position: absolute;
-      bottom: 10%;
-      left: 10px;
-
+      bottom: 5rem;
+      left: 4rem;
       @include media(">phone", "<=tablet") {
-        // margin: 0 auto;
-        padding: 0 2rem;
-        width: 20rem;
+        // padding: 0 2rem;
+        width: 15rem;
       }
     }
   }

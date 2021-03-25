@@ -140,6 +140,10 @@
           filter: invert(100%);
   width: 3rem;
   height: 3rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 @media (min-width: 321px) and (max-width: 768px) {
@@ -265,6 +269,12 @@
   font-size: 1.3rem;
 }
 
+@media (min-width: 321px) and (max-width: 768px) {
+  #aside #book-log {
+    margin-bottom: 4rem;
+  }
+}
+
 #aside #undraw {
   width: 20rem;
 }
@@ -272,14 +282,13 @@
 #aside #undraw img {
   width: 18rem;
   position: absolute;
-  bottom: 10%;
-  left: 10px;
+  bottom: 5rem;
+  left: 4rem;
 }
 
 @media (min-width: 321px) and (max-width: 768px) {
   #aside #undraw img {
-    padding: 0 2rem;
-    width: 20rem;
+    width: 15rem;
   }
 }
 
