@@ -110,11 +110,8 @@ let render = () => {
 
     display.appendChild(displaySide);
 
-    let apiKey = "AIzaSyCnkZmTwm1n9B7Asw5AK5M6Bz0SYfSfB5U";
     let googleApi = "https://www.googleapis.com/books/v1/volumes?q=";
-    fetch(
-      googleApi + book.title + "+inauthor:" + book.author + "&key=" + apiKey
-    )
+    fetch(googleApi + book.title + "+inauthor:" + book.author)
       .then((response) => response.json())
       .then((data) => appendData(data))
       .catch((err) => console.log(err));
