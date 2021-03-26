@@ -104,10 +104,12 @@
       width: 18rem;
       position: absolute;
       bottom: 5rem;
-      left: 4rem;
+      left: 1rem;
+
       @include media(">phone", "<=tablet") {
         // padding: 0 2rem;
         width: 15rem;
+        left: 4rem;
       }
     }
   }

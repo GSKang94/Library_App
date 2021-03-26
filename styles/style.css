@@ -283,12 +283,13 @@
   width: 18rem;
   position: absolute;
   bottom: 5rem;
-  left: 4rem;
+  left: 1rem;
 }
 
 @media (min-width: 321px) and (max-width: 768px) {
   #aside #undraw img {
     width: 15rem;
+    left: 4rem;
   }
 }
 
