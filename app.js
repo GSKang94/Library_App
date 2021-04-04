@@ -51,26 +51,14 @@ let main = () => {
     let authorName = document.getElementById("author-name");
     let bookPages = document.getElementById("book-pages");
 
-    if (
-      bookTitle.value === "" ||
-      authorName.value === "" ||
-      bookPages.value === ""
-    ) {
-      swal("Please Fill everything", {
-        buttons: false,
-        className: "swal-bg",
-        timer: 1000,
-      });
-    } else {
-      let userBook = new Book(
-        bookTitle.value,
-        authorName.value,
-        bookPages.value,
-        haveRead()
-      );
-      myLibrary.push(userBook);
-      render();
-    }
+    let userBook = new Book(
+      bookTitle.value,
+      authorName.value,
+      bookPages.value,
+      haveRead()
+    );
+    myLibrary.push(userBook);
+    render();
   };
 };
 

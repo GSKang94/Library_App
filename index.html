@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <link rel="stylesheet" href="styles/style.css" />
     <title>Library</title>
@@ -36,14 +35,19 @@
         </div>
       </div>
     </section>
-    <form action="#" id="user-form" class="hide" autocomplete="off">
+    <form
+      onsubmit="return false"
+      id="user-form"
+      class="hide"
+      autocomplete="off"
+    >
       <ion-icon name="close-circle"></ion-icon>
 
       <label for="book-title">Title </label>
-      <input type="text" id="book-title" value="1984" />
+      <input type="text" id="book-title" value="1984" required />
 
       <label for="author-name">Author </label>
-      <input type="text" id="author-name" value="orwell" />
+      <input type="text" id="author-name" value="orwell" required />
 
       <label for="book-pages">Pages read</label>
       <input type="number" name="book-pages" id="book-pages" value="10" />
@@ -59,7 +63,7 @@
         </label>
       </div>
 
-      <button type="button" id="submit">Add book</button>
+      <button type="submit" id="submit">Add book</button>
     </form>
 
     <div id="container">
