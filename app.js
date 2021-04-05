@@ -94,7 +94,6 @@ let render = () => {
     let haveRead = div();
     haveRead.id = "display-read";
     displaySide.appendChild(haveRead);
-    // console.log(book.read);
 
     display.appendChild(displaySide);
 
@@ -143,4 +142,36 @@ let storage = () => {
   main();
 };
 
-localStorage.length ? storage() : main();
+let defaultValue = () => {
+  myLibrary = [
+    { title: "1984", author: "orwell", pages: "10", read: false },
+    {
+      title: "The Lord of the Rings",
+      author: "J.R.R. Tolkien",
+      pages: "10",
+      read: false,
+    },
+    {
+      title: "Harry Potter and the Philosopher’s Stone",
+      author: "J.K. Rowling",
+      pages: "10",
+      read: false,
+    },
+    {
+      title: "The Kite Runner",
+      author: " Khaled Hosseini",
+      pages: "10",
+      read: false,
+    },
+    {
+      title: "Slaughterhouse-Five",
+      author: " Kurt Vonnegut",
+      pages: "10",
+      read: false,
+    },
+  ];
+  localStorage.setItem("book", JSON.stringify(myLibrary));
+  storage();
+};
+
+localStorage.length ? storage() : defaultValue();
