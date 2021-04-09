@@ -128,7 +128,6 @@ let bookLog = () => {
 
   let booksRead = document.getElementById("books-read");
   myLibrary[lastItem].read ? booksRead.innerText++ : null;
-
   localStorage.setItem("book", JSON.stringify(myLibrary));
 };
 
@@ -143,8 +142,13 @@ let storage = () => {
 };
 
 let defaultValue = () => {
-  myLibrary = [
-    { title: "1984", author: "orwell", pages: "10", read: false },
+  defaultLibrary = [
+    {
+      title: "The alchemist",
+      author: "Paulo Cohelo",
+      pages: "10",
+      read: false,
+    },
     {
       title: "The Lord of the Rings",
       author: "J.R.R. Tolkien",
@@ -158,20 +162,18 @@ let defaultValue = () => {
       read: false,
     },
     {
-      title: "The Kite Runner",
-      author: " Khaled Hosseini",
-      pages: "10",
-      read: false,
-    },
-    {
       title: "Slaughterhouse-Five",
       author: " Kurt Vonnegut",
       pages: "10",
       read: false,
     },
   ];
-  localStorage.setItem("book", JSON.stringify(myLibrary));
-  storage();
+  defaultLibrary.map((book) => {
+    let defaultBook = new Book(book.title, book.author, book.pages, book.read);
+    myLibrary.push(defaultBook);
+    render();
+  });
+  main();
 };
 
 localStorage.length ? storage() : defaultValue();
